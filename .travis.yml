@@ -1,0 +1,17 @@
+language: node_js
+services:
+  - postgresql
+before_install:
+  - pwd
+  - rvm install 2.6.3
+  - gem install bundler
+  - nvm install 12.14.1
+install:
+  - cd ebai-front && npm install && cd ..
+  - cd ebai-back && bundle install && cd ..
+before_script:
+  - cp ebai-back/config/database.yml.travis ebai-back/config/database.yml
+  - cd ebai-back && bundle exec rake db:reset db:setup db:migrate RAILS_ENV=test && cd ..
+script:
+  - cd ebai-front && npm run test:unit && cd ..
+  - cd ebai-back && rspec && cd ..
