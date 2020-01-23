@@ -423,3 +423,682 @@ puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
 puma (4.3.1) lib/puma/server.rb:472:in `process_client'
 puma (4.3.1) lib/puma/server.rb:328:in `block in run'
 puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-01-21 23:23:14 -0800
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.2.1) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.2.1) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.1) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.1) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2020-01-21 23:23:15 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.2.1) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.2.1) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.1) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.1) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1931568181650863700)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200122045621)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200122045621"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (18.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1931568181650863700)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2020-01-21 23:24:00 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 3.0ms | ActiveRecord: 2.7ms | Allocations: 2051)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-01-21 23:24:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.1) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.1) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/contacts" for ::1 at 2020-01-21 23:24:04 -0800
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (8.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/contacts_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 7.9ms | ActiveRecord: 13.9ms | Allocations: 4430)
+
+
+Started GET "/users" for ::1 at 2020-01-21 23:24:08 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 807)
+
+
+Started GET "/contacts" for ::1 at 2020-01-22 09:18:20 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/contacts_controller.rb:8:in `index'
+Completed 200 OK in 37ms (Views: 30.2ms | ActiveRecord: 5.1ms | Allocations: 4687)
+
+
+Started POST "/users" for ::1 at 2020-01-22 09:27:39 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"hello", "last_name"=>"worldie", "email_address"=>"hello@world.com", "password"=>"[FILTERED]", "user"=>{"first_name"=>"hello", "last_name"=>"worldie"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 3.4ms | Allocations: 211)
+
+
+  
+TypeError (no implicit conversion of ActionController::Parameters into String):
+  
+app/controllers/users_controller.rb:18:in `+'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for ::1 at 2020-01-22 09:36:22 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"hello", "last_name"=>"worldie", "email_address"=>"hello@world.com", "password"=>"[FILTERED]", "user"=>{"first_name"=>"hello", "last_name"=>"worldie"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 50ms (Views: 0.3ms | ActiveRecord: 5.2ms | Allocations: 10992)
+
+
+Started GET "/users" for ::1 at 2020-01-22 10:20:54 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 1.8ms | Allocations: 1958)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-01-22 10:20:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.1) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.1) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hello@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Hello"], ["last_name", "World"], ["email", "hello@gmail.com"], ["password_digest", "$2a$12$SciOujFH2sJL/IyCvb/4JuozgzRywi3JVPRRYFh2jK8Tg.iyN6XWu"], ["created_at", "2020-01-22 18:21:38.245990"], ["updated_at", "2020-01-22 18:21:38.245990"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2020-01-22 10:21:58 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 20ms (Views: 13.3ms | ActiveRecord: 6.2ms | Allocations: 5106)
+
+
+Started POST "/users" for ::1 at 2020-01-22 10:39:47 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Brian", "last_name"=>"Sung", "email_address"=>"briansung@gmail.com", "password"=>"[FILTERED]", "user"=>{"first_name"=>"Brian", "last_name"=>"Sung"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 26ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 6954)
+
+
+Started POST "/users" for ::1 at 2020-01-22 14:05:25 -0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"Chewbacca", "last_name"=>"Skywalker", "email"=>"chew@bacca.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chew@bacca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Chewbacca"], ["last_name", "Skywalker"], ["email", "chew@bacca.com"], ["password_digest", "$2a$12$AM80kLL.bM3wzGXKoF2XiuHAZRvqp53iB5fcSG8LxZe7Rp8A4GzFK"], ["created_at", "2020-01-22 22:05:26.158786"], ["updated_at", "2020-01-22 22:05:26.158786"]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+Completed 201 Created in 325ms (Views: 1.1ms | ActiveRecord: 11.5ms | Allocations: 9009)
+
+
+Started POST "/users" for ::1 at 2020-01-22 14:07:03 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"awjfeoiwje", "last_name"=>"aweoijwoief", "email"=>"chew@bacca.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chew@bacca.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+Completed 422 Unprocessable Entity in 291ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 4121)
+
+
+Started GET "/users" for ::1 at 2020-01-22 14:07:21 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 2024)
+
+
+Started POST "/users" for ::1 at 2020-01-22 14:34:36 -0800
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"luke", "last_name"=>"sky", "email"=>"luke@sky.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luke@sky.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "luke"], ["last_name", "sky"], ["email", "luke@sky.com"], ["password_digest", "$2a$12$aPl06ua6BqI8djXeTSh3seTDdCJW3///bh/HT4swOkw4HcrTgO.Ne"], ["created_at", "2020-01-22 22:34:36.918754"], ["updated_at", "2020-01-22 22:34:36.918754"]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+Completed 201 Created in 325ms (Views: 1.0ms | ActiveRecord: 9.0ms | Allocations: 9044)
+
+
+Started GET "/users" for ::1 at 2020-01-22 14:35:25 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 1.3ms | Allocations: 2155)
+
+
+Started GET "/users" for ::1 at 2020-01-22 14:39:03 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.6ms | Allocations: 2114)
+
+
+Started POST "/users" for ::1 at 2020-01-22 14:40:34 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"jayden", "last_name"=>"tony", "email"=>"jayden@tony.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jayden@tony.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "jayden"], ["last_name", "tony"], ["email", "jayden@tony.com"], ["password_digest", "$2a$12$CWTKsMSz05mxEe4iVWVrRu.qK2JUx/rE3SfbRh2p5CAi3QsDVgtqK"], ["created_at", "2020-01-22 22:40:34.977813"], ["updated_at", "2020-01-22 22:40:34.977813"]]
+  ↳ app/controllers/users_controller.rb:23:in `create'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:23:in `create'
+Completed 201 Created in 282ms (Views: 0.5ms | ActiveRecord: 3.2ms | Allocations: 3545)
+
+
+Started GET "/users" for ::1 at 2020-01-22 14:40:36 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 2246)
+
+
+Started GET "/users" for ::1 at 2020-01-22 14:45:56 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 1.1ms | Allocations: 2285)
+
+
+Started POST "/users" for ::1 at 2020-01-22 14:50:34 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"testing@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "testing@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "hello"], ["last_name", "world"], ["email", "testing@gmail.com"], ["password_digest", "$2a$12$FU/qJv4mLZCcPNBRS350e.KvSc2KWJJz9HNQSH4NX9ww5X.UxgLw2"], ["created_at", "2020-01-22 22:50:35.351700"], ["updated_at", "2020-01-22 22:50:35.351700"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 312ms (Views: 0.7ms | ActiveRecord: 10.4ms | Allocations: 7951)
+
+
+Started POST "/users" for ::1 at 2020-01-22 14:52:09 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"afefoi", "last_name"=>"awfewfwe", "email"=>"testing@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "testing@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 294ms (Views: 0.2ms | ActiveRecord: 3.7ms | Allocations: 3966)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:16:27 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"helllowoworl@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "helllowoworl@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "hello"], ["last_name", "world"], ["email", "helllowoworl@gmail.com"], ["password_digest", "$2a$12$f0SpHKSj7mWU0ukUzSV.veA/YIdlJ1S9dmtH5E55MXWcnWIvbVlP."], ["created_at", "2020-01-22 23:16:27.559424"], ["updated_at", "2020-01-22 23:16:27.559424"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 289ms (Views: 0.6ms | ActiveRecord: 3.9ms | Allocations: 3482)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:18:12 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"helloworld@aim.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "helloworld@aim.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "hello"], ["last_name", "world"], ["email", "helloworld@aim.com"], ["password_digest", "$2a$12$WE.6AIp3SizhTxOEMiMW6OdHZGXS4eiZKJJw.dek.ZsIs8A3fpDfe"], ["created_at", "2020-01-22 23:18:12.776312"], ["updated_at", "2020-01-22 23:18:12.776312"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 308ms (Views: 0.5ms | ActiveRecord: 2.6ms | Allocations: 3450)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:18:46 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 1.7ms | Allocations: 2674)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:19:02 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.2ms | Allocations: 2620)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:19:14 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"r2@d2.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "r2@d2.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 282ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2892)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:21:10 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"brian", "last_name"=>"sung", "email"=>"briansung@hello.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "briansung@hello.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "brian"], ["last_name", "sung"], ["email", "briansung@hello.com"], ["password_digest", "$2a$12$icaqobPZ7GTvQ5jHSkEXuegjyCOUly9HsxvhUFslcL9l/7oTdfl9a"], ["created_at", "2020-01-22 23:21:10.473650"], ["updated_at", "2020-01-22 23:21:10.473650"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 296ms (Views: 0.7ms | ActiveRecord: 3.6ms | Allocations: 3449)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:22:42 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"oijwojfie", "last_name"=>"woeijowiejf", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "oijwojfie"], ["last_name", "woeijowiejf"], ["email", "not@taken.com"], ["password_digest", "$2a$12$59lxSfmlLv7WR5Xm/SuZwOJuDZd62SJftEUTn6b2fZlvxlwarM0Ti"], ["created_at", "2020-01-22 23:22:42.635708"], ["updated_at", "2020-01-22 23:22:42.635708"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 284ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 3445)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:22:56 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"asdf", "last_name"=>"asdf", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 290ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2892)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:25:33 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 4.9ms | ActiveRecord: 8.2ms | Allocations: 2882)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:25:43 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"asdfasdf", "last_name"=>"asdf", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 286ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 2892)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:27:32 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"asdf", "last_name"=>"asdf", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 287ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 2893)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:29:50 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"asdf", "last_name"=>"asdf", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (4.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 290ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 2892)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:29:55 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"asdf", "last_name"=>"asdf", "email"=>"not@taken.comp", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.comp"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "asdf"], ["last_name", "asdf"], ["email", "not@taken.comp"], ["password_digest", "$2a$12$wOYhiIyxdzUzD1HZnUX7gOt16VheZCjfslxAcOepnohwnnSvRCj3S"], ["created_at", "2020-01-22 23:29:55.892433"], ["updated_at", "2020-01-22 23:29:55.892433"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 293ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 3445)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:30:17 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"asdf", "last_name"=>"asdf", "email"=>"Hello@yes.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Hello@yes.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "asdf"], ["last_name", "asdf"], ["email", "Hello@yes.com"], ["password_digest", "$2a$12$cG/cM9aAMzsykizx6z9gYOe/S2BINQ/WbqDqfBdRETdToeOMm30xi"], ["created_at", "2020-01-22 23:30:18.154011"], ["updated_at", "2020-01-22 23:30:18.154011"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 294ms (Views: 1.5ms | ActiveRecord: 3.1ms | Allocations: 3446)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:30:44 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.5ms | Allocations: 3144)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:30:50 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.9ms | Allocations: 3144)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:33:19 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (25.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 39ms (Views: 12.7ms | ActiveRecord: 25.7ms | Allocations: 3144)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:33:34 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"yes", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 286ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2893)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:33:59 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"yes", "email"=>"definitelynot@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "definitelynot@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "hello"], ["last_name", "yes"], ["email", "definitelynot@taken.com"], ["password_digest", "$2a$12$7orLnACMGgC3ICXjFx8JqOVjxucrAeVJyOe2z30LuD9o.0WN10cNq"], ["created_at", "2020-01-22 23:33:59.435392"], ["updated_at", "2020-01-22 23:33:59.435392"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 291ms (Views: 0.6ms | ActiveRecord: 3.0ms | Allocations: 3447)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:34:32 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"does", "last_name"=>"this", "email"=>"work@yes.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "work@yes.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "does"], ["last_name", "this"], ["email", "work@yes.com"], ["password_digest", "$2a$12$FH.u3VshKZUFF6BkQDc4Tu79n11wFohxXJdqd/rWsAqDdQ9iwftkC"], ["created_at", "2020-01-22 23:34:33.114599"], ["updated_at", "2020-01-22 23:34:33.114599"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 298ms (Views: 0.6ms | ActiveRecord: 8.0ms | Allocations: 3445)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:34:36 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 2.1ms | Allocations: 3406)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:35:15 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (20.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 9.8ms | ActiveRecord: 20.5ms | Allocations: 3406)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:35:17 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.3ms | Allocations: 3406)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:35:31 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 283ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2893)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:35:40 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"not@takenlol.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@takenlol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "hello"], ["last_name", "world"], ["email", "not@takenlol.com"], ["password_digest", "$2a$12$Qr9P7xfU72HL8W8W4jajSOWrHc2SG9SNIRAI2eF8RF8HOceR7HUGu"], ["created_at", "2020-01-22 23:35:40.854939"], ["updated_at", "2020-01-22 23:35:40.854939"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 286ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 3445)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:36:22 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 285ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 2892)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:36:27 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"not@taaaaken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taaaaken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "hello"], ["last_name", "world"], ["email", "not@taaaaken.com"], ["password_digest", "$2a$12$gwmB3Xd4fPN4nChKr6Hogue/10XCO151uKSQX..y5EMmJQ7Qa7bOK"], ["created_at", "2020-01-22 23:36:28.152883"], ["updated_at", "2020-01-22 23:36:28.152883"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 282ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 3445)
+
+
+Started GET "/users" for ::1 at 2020-01-22 15:36:29 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.8ms | Allocations: 3668)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:38:09 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"brian", "last_name"=>"sung", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 282ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2893)
+
+
+Started POST "/users" for ::1 at 2020-01-22 15:39:34 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"first_name"=>"hello", "last_name"=>"world", "email"=>"not@taken.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "not@taken.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 422 Unprocessable Entity in 283ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2895)
+
+
