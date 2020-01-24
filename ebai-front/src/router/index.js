@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Signup from '../views/Signup.vue'
+import Dashboard from '@/views/Dashboard'
+import Home from '@/views/Home'
+import Signup from '@/views/Signup'
 import Success from '@/views/Success'
 import Users from '@/views/Users'
 
@@ -27,6 +28,11 @@ export const routes = [
     path: '/users',
     name: 'users',
     component: Users
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: Dashboard
   }
 ]
 

@@ -1,17 +1,46 @@
 <template>
   <div id="app" class="container">
-    <NavigationBar />
+    <NavigationBar :loggedIn=loggedIn @loginClicked="showModal" />
+    <Modal v-show="isModalVisible" @close="closeModal" />
     <router-view/>
   </div>
 </template>
 
 <script>
+import Modal from '@/components/Modal'
 import NavigationBar from '@/components/NavigationBar'
+import { checkIfLoggedIn } from '@/api/users'
 
 export default {
   name: 'app',
   components: {
+    Modal,
     NavigationBar
+  },
+  data () {
+    return {
+      isModalVisible: false,
+      loggedIn: false
+    }
+  },
+  beforeMount () {
+    this.checkLoginStatus()
+  },
+  methods: {
+    showModal () {
+      this.isModalVisible = true
+    },
+    closeModal () {
+      this.isModalVisible = false
+    },
+    async checkLoginStatus () {
+      try {
+        await checkIfLoggedIn()
+        this.loggedIn = true
+      } catch (err) {
+        console.log(err)
+      }
+    }
   }
 }
 </script>

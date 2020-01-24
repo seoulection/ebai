@@ -6,17 +6,26 @@
         <p> Like Ebay but with an i </p>
       </div>
     </div>
-    <div class="column-50">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/signup">Register</router-link> |
-      <router-link to="/users">Show All Users</router-link>
-    </div>
+    <ul class="column-50 nav-links">
+      <li class="nav-link"><router-link to="/">Home</router-link> |</li>
+      <li class="nav-link" v-if="!loggedIn"><router-link to="/signup">Register</router-link> |</li>
+      <li class="nav-link"><router-link to="/users">Show All Users</router-link> |</li>
+      <li class="nav-link" v-if="!loggedIn"><a href="#" v-on:click="loginClicked">Login</a> |</li>
+    </ul>
   </nav>
 </template>
 
 <script>
 export default {
-  name: 'NavigationBar'
+  name: 'NavigationBar',
+  props: {
+    loggedIn: Boolean
+  },
+  methods: {
+    loginClicked () {
+      this.$emit('loginClicked')
+    }
+  }
 }
 </script>
 
@@ -35,5 +44,14 @@ export default {
   .ebai-name h1 {
     text-align: left;
     margin-bottom: 0;
+  }
+
+  .nav-link {
+    padding: 0 0.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
   }
 </style>
