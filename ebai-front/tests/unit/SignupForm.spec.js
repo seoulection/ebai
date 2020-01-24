@@ -1,46 +1,39 @@
-import { render } from '@testing-library/vue'
+import { mount, shallowMount } from '@vue/test-utils'
 import SignupForm from '@/components/SignupForm'
 
 describe('SignupForm.vue', () => {
-  it('has a first name field', async () => {
-    const { getByLabelText } = render(SignupForm)
-    const firstNameInput = getByLabelText(/First Name/i)
+  let wrapper = shallowMount(SignupForm)
 
-    expect(firstNameInput).toBeInTheDocument()
+  it('has a first name field', () => {
+    expect(wrapper.find('label[for="firstName"]').text()).toBe('First Name*:')
+    expect(wrapper.find('input[id="firstName"]').exists()).toBe(true)
   })
 
   it('has a last name field', () => {
-    const { getByLabelText } = render(SignupForm)
-    const lastNameInput = getByLabelText(/Last Name/i)
-
-    expect(lastNameInput).toBeInTheDocument()
+    expect(wrapper.find('label[for="lastName"]').text()).toBe('Last Name*:')
+    expect(wrapper.find('input[id="lastName"]').exists()).toBe(true)
   })
 
   it('has an email field', () => {
-    const { getByLabelText } = render(SignupForm)
-    const emailInput = getByLabelText(/Email Address/i)
-
-    expect(emailInput).toBeInTheDocument()
+    expect(wrapper.find('label[for="email"]').text()).toBe('Email Address*:')
+    expect(wrapper.find('input[id="email"]').exists()).toBe(true)
   })
 
   it('has a password field', () => {
-    const { getByLabelText } = render(SignupForm)
-    const passwordInput = getByLabelText(/Password/i)
-
-    expect(passwordInput).toBeInTheDocument()
+    expect(wrapper.find('span[class="info"]').text()).toContain('Password must contain letters, numbers, and at least one special character')
+    expect(wrapper.find('label[for="lastName"]').text()).toBe('Last Name*:')
+    expect(wrapper.find('input[id="lastName"]').exists()).toBe(true)
   })
 
-  it('has a create an account header', () => {
-    const { getByText } = render(SignupForm)
-    const header = getByText(/Create an account/i)
-
-    expect(header).toBeInTheDocument()
+  it('has a register button', () => {
+    expect(wrapper.find('button[type="submit"]').text()).toBe('Register')
+    expect(wrapper.find('button[type="submit"]').exists()).toBe(true)
   })
 
-  it('has a submit button', () => {
-    const { getByText } = render(SignupForm)
-    const button = getByText(/Register/i)
+  it('renders an error message', () => {
+    const wrapper = mount(SignupForm)
 
-    expect(button).toBeInTheDocument()
+    wrapper.setData({ error: 'This will be rendered' })
+    expect(wrapper.find('h3[id="error"]').text()).toBe('This will be rendered')
   })
 })
