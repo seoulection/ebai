@@ -7,9 +7,8 @@ export async function getUsers() {
 
 export async function createUser(data) {
     try {
-      const res = await axios.post('http://localhost:3000/users', data)
-      return res.status
-    } catch (e) {
-      return 422
+      await axios.post('http://localhost:3000/users', data)
+    } catch (err) {
+      throw new Error('Email is already taken')
     }
 }

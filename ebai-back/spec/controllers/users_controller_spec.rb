@@ -29,11 +29,21 @@ RSpec.describe UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      first_name: 'Bill',
+      last_name: 'Gates',
+      email: 'bill@gates.com',
+      password: 'iloveMicrosoft123#'
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      first_name: nil,
+      last_name: 'Gates',
+      email: 'nil@gates.com',
+      password: 'iloveMicrosoft123#'
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -69,7 +79,7 @@ RSpec.describe UsersController, type: :controller do
 
         post :create, params: {user: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
         expect(response.location).to eq(user_url(User.last))
       end
     end
@@ -79,7 +89,7 @@ RSpec.describe UsersController, type: :controller do
 
         post :create, params: {user: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
@@ -102,7 +112,7 @@ RSpec.describe UsersController, type: :controller do
 
         put :update, params: {id: user.to_param, user: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
 
@@ -112,7 +122,7 @@ RSpec.describe UsersController, type: :controller do
 
         put :update, params: {id: user.to_param, user: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
