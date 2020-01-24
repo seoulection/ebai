@@ -7,7 +7,7 @@ import Users from '@/views/Users'
 
 Vue.use(VueRouter)
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'home',

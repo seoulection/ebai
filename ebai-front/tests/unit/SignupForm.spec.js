@@ -1,45 +1,46 @@
-import { toBeInTheDocument } from '@testing-library/jest-dom'
-import {render, wait} from '@testing-library/vue'
+import { render } from '@testing-library/vue'
 import SignupForm from '@/components/SignupForm'
-import { createUser } from '@/api/users'
-
-jest.mock('@/api/users.js')
 
 describe('SignupForm.vue', () => {
   it('has a first name field', async () => {
-    let data = {
-        user: {
-            first_name: "Hello",
-            last_name: "Goodbye",
-            email: "this@isnottaken.com",
-            password: "Hello1234%"
-        }
-    }
-    createUser.mockResolvedValueOnce(data)
-
     const { getByLabelText } = render(SignupForm)
+    const firstNameInput = getByLabelText(/First Name/i)
 
-    await wait(() => {
-      const actual = getByLabelText(/First Name:/i)
-      expect(actual).toBeInTheDocument()
-    })
+    expect(firstNameInput).toBeInTheDocument()
   })
-  it('has an email field', async () => {
-    let data = {
-        user: {
-            first_name: "Hello",
-            last_name: "Goodbye",
-            email: "this@isalsonottaken.com",
-            password: "Hello1234%"
-        }
-    }
-    createUser.mockResolvedValueOnce(data)
 
+  it('has a last name field', () => {
     const { getByLabelText } = render(SignupForm)
+    const lastNameInput = getByLabelText(/Last Name/i)
 
-    await wait(() => {
-      const actual = getByLabelText(/Email Address:/i)
-      expect(actual).toBeInTheDocument()
-    })
+    expect(lastNameInput).toBeInTheDocument()
+  })
+
+  it('has an email field', () => {
+    const { getByLabelText } = render(SignupForm)
+    const emailInput = getByLabelText(/Email Address/i)
+
+    expect(emailInput).toBeInTheDocument()
+  })
+
+  it('has a password field', () => {
+    const { getByLabelText } = render(SignupForm)
+    const passwordInput = getByLabelText(/Password/i)
+
+    expect(passwordInput).toBeInTheDocument()
+  })
+
+  it('has a create an account header', () => {
+    const { getByText } = render(SignupForm)
+    const header = getByText(/Create an account/i)
+
+    expect(header).toBeInTheDocument()
+  })
+
+  it('has a submit button', () => {
+    const { getByText } = render(SignupForm)
+    const button = getByText(/Register/i)
+
+    expect(button).toBeInTheDocument()
   })
 })

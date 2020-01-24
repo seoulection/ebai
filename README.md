@@ -21,7 +21,7 @@ cd ebai-back/ && bundle install
 ```
 Afterwards, setup the database:
 ```
-cd ebai-back/ && rake db:create && rake db:setup
+cd ebai-back/ && rake db:create && rake db:migrate && rake db:seed
 ```
 
 ## How to Run
