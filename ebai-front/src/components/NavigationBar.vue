@@ -7,10 +7,10 @@
       </div>
     </div>
     <ul class="column-50 nav-links">
-      <li class="nav-link"><router-link to="/">Home</router-link> |</li>
-      <li class="nav-link" v-if="!loggedIn"><router-link to="/signup">Register</router-link> |</li>
-      <li class="nav-link"><router-link to="/users">Show All Users</router-link> |</li>
-      <li class="nav-link" v-if="!loggedIn"><a href="#" v-on:click="loginClicked">Login</a> |</li>
+      <li class="nav-link"><router-link to="/">Home</router-link></li>
+      <li class="nav-link" v-if="!loggedIn"><router-link to="/signup">Register</router-link></li>
+      <li class="nav-link"><router-link to="/users">Show All Users</router-link></li>
+      <li class="nav-link" v-if="!loggedIn"><a class="loginLink" v-on:click="loginClicked">Login</a></li>
     </ul>
   </nav>
 </template>
@@ -53,5 +53,13 @@ export default {
   .nav-links {
     display: flex;
     list-style: none;
+  }
+  
+  .loginLink {
+    cursor: pointer;
+  }
+
+  li + li::before {
+    content: " | ";
   }
 </style>

@@ -1,20 +1,20 @@
 <template>
   <div id="app" class="container">
     <NavigationBar :loggedIn=loggedIn @loginClicked="showModal" />
-    <Modal v-show="isModalVisible" @close="closeModal" />
+    <SigninModal v-show="isModalVisible" @close="closeModal" />
     <router-view/>
   </div>
 </template>
 
 <script>
-import Modal from '@/components/Modal'
 import NavigationBar from '@/components/NavigationBar'
+import SigninModal from '@/components/SigninModal'
 import { checkIfLoggedIn } from '@/api/users'
 
 export default {
   name: 'app',
   components: {
-    Modal,
+    SigninModal,
     NavigationBar
   },
   data () {
@@ -32,6 +32,7 @@ export default {
     },
     closeModal () {
       this.isModalVisible = false
+      this.checkLoginStatus()
     },
     async checkLoginStatus () {
       try {
@@ -65,5 +66,4 @@ export default {
 #navigation a.router-link-exact-active {
   color: #9b4dca;
 }
-
 </style>
