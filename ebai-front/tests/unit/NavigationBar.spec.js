@@ -14,26 +14,26 @@ describe('NavigationBar.vue', () => {
     const wrapper = shallowMount(NavigationBar, {
       stubs: ['router-link'],
       propsData: {
-        loggedOut: true
+        loggedIn: false
       }
     })
 
     expect(wrapper.find('[to="/"]').text()).toBe('Home')
     expect(wrapper.find('[to="/signup"]').text()).toBe('Register')
     expect(wrapper.find('[to="/users"]').text()).toBe('Show All Users')
-    expect(wrapper.find('[to="/signin"]').text()).toBe('Login')
+    expect(wrapper.find('[class="loginLink"]').text()).toBe('Login')
   }) 
 
   it('renders some navigation links when user is logged in', () => {
     const wrapper = shallowMount(NavigationBar, {
       stubs: ['router-link'],
       propsData: {
-        loggedOut: false
+        loggedIn: true
       }
     })
     expect(wrapper.find('[to="/"]').text()).toBe('Home')
     expect(wrapper.find('[to="/users"]').text()).toBe('Show All Users')
     expect(wrapper.find('[to="/signup"]').exists()).toBe(false)
-    expect(wrapper.find('[to="/signin"]').exists()).toBe(false)
+    expect(wrapper.find('[class="loginLink"]').exists()).toBe(false)
   }) 
 })

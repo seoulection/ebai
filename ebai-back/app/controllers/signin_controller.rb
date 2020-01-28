@@ -2,8 +2,6 @@ class SigninController < ApplicationController
   before_action :authorize_access_request!, except: [:index, :create]
 
   def index
-    puts "hello"
-    puts current_user
     if (current_user)
       render json: @current_user
     else
