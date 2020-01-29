@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 import Signup from '@/views/Signup'
 import Success from '@/views/Success'
 import Users from '@/views/Users'
+import Auction from '@/views/Auction'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ export const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: Dashboard
+  },
+  {
+    path: '/auctions/:id',
+    name: 'auction',
+    component: Auction
   }
 ]
 

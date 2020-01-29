@@ -11,7 +11,7 @@ install:
   - cd ebai-back && bundle install && cd ..
 before_script:
   - cp ebai-back/config/database.yml.travis ebai-back/config/database.yml
-  - cd ebai-back && bundle exec rake db:reset db:setup db:migrate RAILS_ENV=test && cd ..
+  - cd ebai-back && bundle exec rake db:reset RAILS_ENV=test && cd ..
 script:
   - cd ebai-front && npm run test:unit && cd ..
   - cd ebai-back && rspec && cd ..
