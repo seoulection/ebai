@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
-    <NavigationBar :loggedIn=loggedIn @loginClicked="showModal" />
-    <SigninModal v-show="isModalVisible" @close="closeModal" />
+    <NavigationBar :loggedIn=isLoggedIn @loggedOut="setLoggedOut" />
+    <SigninModal v-if="isModalVisible" @close="closeModal" />
     <router-view/>
   </div>
 </template>
@@ -10,6 +10,7 @@
 import NavigationBar from '@/components/NavigationBar'
 import SigninModal from '@/components/SigninModal'
 import { checkIfLoggedIn } from '@/api/users'
+import EventBus from '@/eventBus'
 
 export default {
   name: 'app',
@@ -20,15 +21,19 @@ export default {
   data () {
     return {
       isModalVisible: false,
-      loggedIn: false
+      isLoggedIn: false
     }
   },
   beforeMount () {
     this.checkLoginStatus()
   },
+  mounted() {
+    this.showModalListener()
+  },
   methods: {
-    showModal () {
-      this.isModalVisible = true
+    showModalListener () {
+      EventBus.$on('loginClicked', () => {
+        this.isModalVisible = true });
     },
     closeModal () {
       this.isModalVisible = false
@@ -37,10 +42,13 @@ export default {
     async checkLoginStatus () {
       try {
         await checkIfLoggedIn()
-        this.loggedIn = true
+        this.isLoggedIn = true
       } catch (err) {
         console.log(err)
       }
+    },
+    setLoggedOut () {
+      this.isLoggedIn = false
     }
   }
 }

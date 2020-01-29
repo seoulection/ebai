@@ -6,24 +6,33 @@
         <p> Like Ebay but with an i </p>
       </div>
     </div>
-    <ul class="column-50 nav-links">
-      <li class="nav-link"><router-link to="/">Home</router-link></li>
-      <li class="nav-link" v-if="!loggedIn"><router-link to="/signup">Register</router-link></li>
-      <li class="nav-link"><router-link to="/users">Show All Users</router-link></li>
-      <li class="nav-link" v-if="!loggedIn"><a class="loginLink" v-on:click="loginClicked">Login</a></li>
-    </ul>
+    <LoggedInNavigationLinks v-if="loggedIn" @logoutClicked="logout" />
+    <LoggedOutNavigationLinks v-if="!loggedIn"/>
   </nav>
 </template>
 
 <script>
+import { logoutUser } from '@/api/users'
+import LoggedInNavigationLinks from '@/components/LoggedInNavigationLinks'
+import LoggedOutNavigationLinks from '@/components/LoggedOutNavigationLinks'
+
 export default {
   name: 'NavigationBar',
   props: {
     loggedIn: Boolean
   },
+  components: {
+    LoggedInNavigationLinks,
+    LoggedOutNavigationLinks
+  },
   methods: {
-    loginClicked () {
-      this.$emit('loginClicked')
+    async logout() {
+      try {
+        await logoutUser()
+        this.$emit('loggedOut')
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }
@@ -44,22 +53,5 @@ export default {
   .ebai-name h1 {
     text-align: left;
     margin-bottom: 0;
-  }
-
-  .nav-link {
-    padding: 0 0.5rem;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-  }
-  
-  .loginLink {
-    cursor: pointer;
-  }
-
-  li + li::before {
-    content: " | ";
   }
 </style>

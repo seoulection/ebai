@@ -25,3 +25,9 @@ export async function checkIfLoggedIn() {
     throw new Error('User is already logged in')
   }
 }
+
+export async function logoutUser() {
+    return await axios.delete('http://localhost:3000/signin', {
+      withCredentials: true
+    })
+}
