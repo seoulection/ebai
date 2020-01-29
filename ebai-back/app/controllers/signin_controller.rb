@@ -1,5 +1,5 @@
 class SigninController < ApplicationController
-  before_action :authorize_access_request!, except: [:index, :create]
+  # before_action :authorize_access_request!, except: [:index, :create]
 
   def index
     if (current_user)
@@ -16,6 +16,13 @@ class SigninController < ApplicationController
     else
       not_authorized
     end
+  end
+
+  def destroy
+    puts "hello i am in delete"
+    puts current_user
+    # session.delete(current_user.id)
+    reset_session
   end
 
   private

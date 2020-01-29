@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <NavigationBar :loggedIn=loggedIn @loginClicked="showModal" />
+    <NavigationBar :loggedIn=loggedIn @loginClicked="showModal" @loggedOut="loggedOut" />
     <SigninModal v-show="isModalVisible" @close="closeModal" />
     <router-view/>
   </div>
@@ -41,6 +41,9 @@ export default {
       } catch (err) {
         console.log(err)
       }
+    },
+    loggedOut () {
+      this.loggedIn = false
     }
   }
 }

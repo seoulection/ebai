@@ -6,24 +6,37 @@
         <p> Like Ebay but with an i </p>
       </div>
     </div>
-    <ul class="column-50 nav-links">
-      <li class="nav-link"><router-link to="/">Home</router-link></li>
-      <li class="nav-link" v-if="!loggedIn"><router-link to="/signup">Register</router-link></li>
-      <li class="nav-link"><router-link to="/users">Show All Users</router-link></li>
-      <li class="nav-link" v-if="!loggedIn"><a class="loginLink" v-on:click="loginClicked">Login</a></li>
-    </ul>
+    <LoggedInNavigationLinks v-if="loggedIn" @logoutClicked="logout" />
+    <LoggedOutNavigationLinks v-if="!loggedIn" v-on="$listeners" />
   </nav>
 </template>
 
 <script>
+import axios from 'axios'
+import LoggedInNavigationLinks from '@/components/LoggedInNavigationLinks'
+import LoggedOutNavigationLinks from '@/components/LoggedOutNavigationLinks'
+
 export default {
   name: 'NavigationBar',
   props: {
     loggedIn: Boolean
   },
+  components: {
+    LoggedInNavigationLinks,
+    LoggedOutNavigationLinks
+  },
   methods: {
-    loginClicked () {
-      this.$emit('loginClicked')
+    async logout() {
+      console.log('in logout')
+      try {
+        const res = await axios.delete('http://localhost:3000/signin', {
+          withCredentials: true
+        })
+        this.$emit('loggedOut')
+        console.log(res)
+      } catch (e){
+        console.log(e)
+      }
     }
   }
 }
@@ -44,22 +57,5 @@ export default {
   .ebai-name h1 {
     text-align: left;
     margin-bottom: 0;
-  }
-
-  .nav-link {
-    padding: 0 0.5rem;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-  }
-  
-  .loginLink {
-    cursor: pointer;
-  }
-
-  li + li::before {
-    content: " | ";
   }
 </style>
