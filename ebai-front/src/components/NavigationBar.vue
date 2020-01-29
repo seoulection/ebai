@@ -7,12 +7,12 @@
       </div>
     </div>
     <LoggedInNavigationLinks v-if="loggedIn" @logoutClicked="logout" />
-    <LoggedOutNavigationLinks v-if="!loggedIn" v-on="$listeners" />
+    <LoggedOutNavigationLinks v-if="!loggedIn"/>
   </nav>
 </template>
 
 <script>
-import axios from 'axios'
+import { logoutUser } from '@/api/users'
 import LoggedInNavigationLinks from '@/components/LoggedInNavigationLinks'
 import LoggedOutNavigationLinks from '@/components/LoggedOutNavigationLinks'
 
@@ -27,14 +27,10 @@ export default {
   },
   methods: {
     async logout() {
-      console.log('in logout')
       try {
-        const res = await axios.delete('http://localhost:3000/signin', {
-          withCredentials: true
-        })
+        await logoutUser()
         this.$emit('loggedOut')
-        console.log(res)
-      } catch (e){
+      } catch (e) {
         console.log(e)
       }
     }
