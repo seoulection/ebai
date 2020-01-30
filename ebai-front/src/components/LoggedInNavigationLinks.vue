@@ -1,6 +1,7 @@
 <template>
   <ul class="column-50 nav-links">
     <li class="nav-link"><router-link to="/">Home</router-link></li>
+    <li class="nav-link"><router-link to="/dashboard">Dashboard</router-link></li>
     <li class="nav-link"><router-link to="/users">Show All Users</router-link></li>
     <li class="nav-link"><router-link to="/" class="logoutLink" @click.native="logoutClicked">Logout</router-link></li>
   </ul>

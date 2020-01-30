@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authorize_access_request!, except: [:create, :show, :index]
-
   # GET /users
   # not for production
   def index

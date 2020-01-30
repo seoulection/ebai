@@ -6,6 +6,7 @@ import Signup from '@/views/Signup'
 import Success from '@/views/Success'
 import Users from '@/views/Users'
 import Auction from '@/views/Auction'
+import CreateAuction from '@/views/CreateAuction'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ export const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: Dashboard
+  },
+  {
+    path: '/auctions/new',
+    name: 'createAuction',
+    component: CreateAuction
   },
   {
     path: '/auctions/:id',
