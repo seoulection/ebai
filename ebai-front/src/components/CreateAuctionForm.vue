@@ -4,8 +4,9 @@
     <LabeledInput inputId="description" labelText="Description" inputType="text" :required=true v-model="description" />
     <LabeledInput inputId="starting-bid-price" labelText="Starting Bid Price" inputType="number" minVal="1" :required=true placeholder="Minimum $1.00" v-model="startingBidPrice" />
     <LabeledInput inputId="buy-it-now-price" labelText="Buy It Now Price" inputType="number" minVal="1" v-model="buyItNowPrice" />
-    <LabeledInput inputId="end-date" labelText="End Date" inputType="date" :minVal="currentDate" :required=true v-model="endDate" />
+    <LabeledInput inputId="end-date" labelText="End Date" inputType="date" :minVal="tomorrowsDate" :required=true v-model="endDate" />
     <button class="auction-btn" type="submit">Create</button>
+    <h2 class="error" v-if="error">{{ error }}</h2>
   </form>
 </template>
 
@@ -22,11 +23,12 @@ export default {
       description: '',
       startingBidPrice: 1,
       buyItNowPrice: null,
-      endDate: null
+      endDate: null,
+      error: ''
     }
   },
   computed: {
-    currentDate: function () {
+    tomorrowsDate: function () {
       return moment(new Date()).add(1, 'day').format('YYYY-MM-DD')
     }
   },

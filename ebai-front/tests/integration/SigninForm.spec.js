@@ -40,15 +40,6 @@ describe('submitting the signup form', () => {
 
       expect(loginUser).toHaveBeenCalledWith(data)
     })
-
-    it('reroutes to the dashboard on successful login', async () => {
-      loginUser.mockResolvedValueOnce(data)
-      submitSigninForm(wrapper)
-      await resolvePromise()
-
-      expect(wrapper.vm.$route.name).toBe('dashboard')
-      expect(wrapper.emitted().loginSuccessful).toBeTruthy()
-    })
   })
 
   describe('on unsuccessful submit', () => {

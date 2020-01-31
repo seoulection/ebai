@@ -3,25 +3,23 @@ class SigninController < ApplicationController
 
   def index
     if (current_user)
-      render json: @current_user
+      render json: current_user
     else
       not_authorized
     end
   end
 
   def create
-    user = User.find_by!(email: params[:user][:email])
-    if user.authenticate(params[:user][:password])
-      authenticate_user(user)
+    @user = User.find_by!(email: params[:user][:email])
+    if @user.authenticate(params[:user][:password])
+      authenticate_user(@user)
+      render json: @user
     else
       not_authorized
     end
   end
 
   def destroy
-    puts "hello i am in delete"
-    puts current_user
-    # session.delete(current_user.id)
     reset_session
   end
 

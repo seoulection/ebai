@@ -1,7 +1,11 @@
 import axios from 'axios'
 
 export async function showAuction(id) {
-  return await axios.get(`http://localhost:3000/auctions/${id}`)
+  try {
+    return await axios.get(`http://localhost:3000/auctions/${id}`)
+  } catch (err) {
+    throw Error(err)
+  }
 }
 
 export async function createAuction(data) {
@@ -10,6 +14,6 @@ export async function createAuction(data) {
       withCredentials: true
     })
   } catch(e) {
-    throw new Error('Error while saving auction. Please try again!')
+    throw new Error('Auction cannot be saved. Please try again!')
   }
 }

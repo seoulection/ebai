@@ -45,4 +45,22 @@ describe('LabeledInput.vue', () => {
 
     expect(input.attributes().type).toBe('password')
   })
+
+  it('can have different attributes', () => {
+    const wrapper = mount(LabeledInput, {
+      propsData: {
+        labelText: "Hey",
+        inputType: "number",
+        required: true,
+        minVal: '1',
+        placeholder: 'Input a number',
+        id: "name"
+      }
+    }) 
+
+    const input = wrapper.find('input')
+
+    expect(input.attributes().min).toEqual('1')
+    expect(input.attributes().placeholder).toEqual('Input a number')
+  })
 })

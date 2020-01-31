@@ -6,6 +6,25 @@ import { mockRouter, resolvePromise } from '../helpers/helpers.js'
 jest.mock('@/api/users.js')
 
 describe('submitting the signup form', () => {
+  let wrapper
+
+  beforeEach(() => {
+    const localVue = createLocalVue()
+    const router = mockRouter(localVue)
+    wrapper = mount(SignupForm, {
+      localVue,
+      router
+    })
+  })
+
+  function fillOutForm(wrapper) {
+    wrapper.find('#firstName').setValue('Hello')
+    wrapper.find('#lastName').setValue('World')
+    wrapper.find('#email').setValue('hello@world.net')
+    wrapper.find('#password').setValue('Hello1234%')
+    wrapper.find('form').trigger('submit.prevent')
+  }
+
   describe('on successful submit', () => {
     it('createUser gets called with the correct payload', async () => {
       const data = {
@@ -16,74 +35,26 @@ describe('submitting the signup form', () => {
           password: 'Hello1234%'
         }
       }
-      const localVue = createLocalVue()
-      const router = mockRouter(localVue)
-      const wrapper = mount(SignupForm, {
-        localVue,
-        router
-      })
 
       createUser.mockResolvedValueOnce(201)
-      const firstNameInput = wrapper.find('#firstName')
-      firstNameInput.setValue('Hello')
-      const lastNameInput = wrapper.find('#lastName')
-      lastNameInput.setValue('World')
-      const emailInput = wrapper.find('#email')
-      emailInput.setValue('hello@world.net')
-      const passwordInput = wrapper.find('#password')
-      passwordInput.setValue('Hello1234%')
-      wrapper.find('form').trigger('submit.prevent')
-
+      fillOutForm(wrapper)
       await resolvePromise()
 
       expect(createUser).toHaveBeenCalledWith(data)
     })
 
     it('redirects the user to the success page', async () => {
-      const localVue = createLocalVue()
-      const router = mockRouter(localVue)
-      const wrapper = mount(SignupForm, {
-        localVue,
-        router
-      })
-
       createUser.mockResolvedValueOnce(201)
-      const firstNameInput = wrapper.find('#firstName')
-      firstNameInput.setValue('Hello')
-      const lastNameInput = wrapper.find('#lastName')
-      lastNameInput.setValue('World')
-      const emailInput = wrapper.find('#email')
-      emailInput.setValue('hello@world.gov')
-      const passwordInput = wrapper.find('#password')
-      passwordInput.setValue('Hello1234%')
-      wrapper.find('form').trigger('submit.prevent')
-
+      fillOutForm(wrapper)
       await resolvePromise()
       
       expect(wrapper.vm.$route.name).toBe('success')
     })
 
     it('shows an error message for incorrect signup', async () => {
-      const localVue = createLocalVue()
-      const router = mockRouter(localVue)
-      const wrapper = mount(SignupForm, {
-        localVue,
-        router
-      })
+      createUser.mockRejectedValueOnce(new Error('Email is already taken'))
 
-      createUser.mockImplementation(() => {
-        throw new Error('Email is already taken')
-      })
-      const firstNameInput = wrapper.find('#firstName')
-      firstNameInput.setValue('Hello')
-      const lastNameInput = wrapper.find('#lastName')
-      lastNameInput.setValue('World')
-      const emailInput = wrapper.find('#email')
-      emailInput.setValue('hello@world.gov')
-      const passwordInput = wrapper.find('#password')
-      passwordInput.setValue('Hello1234%')
-      wrapper.find('form').trigger('submit.prevent')
-
+      fillOutForm(wrapper)
       await resolvePromise()
       
       expect(wrapper.find('#error').text()).toBe('Error: Email is already taken')
