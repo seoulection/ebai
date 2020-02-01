@@ -19,8 +19,9 @@ describe('Auction.vue', () => {
 
     wrapper.setData({ auctionData: data })
     wrapper.setData({ userName: 'Hello World' })
+    wrapper.setData({ error: '' })
 
-    expect(wrapper.find('h2').text()).toEqual('test title')
+    expect(wrapper.find('.auction-title').text()).toEqual('test title')
     expect(wrapper.find('.current-bid-price').text()).toEqual('$1.00')
     expect(wrapper.find('.buy-it-now-price').text()).toEqual('$5.00')
     expect(wrapper.find('.end-date').text()).toEqual('2020-01-30')
@@ -32,6 +33,6 @@ describe('Auction.vue', () => {
 
     wrapper.setData({ error: 'This is an error' })
 
-    expect(wrapper.find('.error').text()).toEqual('This is an error')
+    expect(wrapper.find('.error-text').text()).toEqual('This is an error')
   })
 })

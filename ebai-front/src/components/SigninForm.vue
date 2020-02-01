@@ -44,8 +44,8 @@ export default {
       }
     },
     loginSuccessful () {
-      this.$router.push({ name: 'dashboard' }) 
       this.$emit('loginSuccessful')
+      this.$router.go()
     },
     loginFailed () {
       this.error = 'Invalid credentials'

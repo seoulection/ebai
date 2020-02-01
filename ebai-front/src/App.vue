@@ -43,8 +43,8 @@ export default {
       try {
         await checkIfLoggedIn()
         this.isLoggedIn = true
-      } catch (err) {
-        console.log(err)
+      } catch {
+        this.loggedIn = false
       }
     },
     setLoggedOut () {

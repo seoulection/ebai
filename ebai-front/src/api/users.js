@@ -29,13 +29,27 @@ export async function loginUser(data) {
 export async function checkIfLoggedIn() {
   try {
     return await axios.get('http://localhost:3000/signin', { withCredentials: true })
-  } catch {
-    throw new Error('User is already logged in')
+  } catch (err) {
+    throw Error(err)
   }
 }
 
 export async function logoutUser() {
+  try {
     return await axios.delete('http://localhost:3000/signin', {
       withCredentials: true
     })
+  } catch (err) {
+    throw Error(err)
+  }
+}
+
+export async function getUserDashboard() {
+  try {
+    return await axios.get(`http://localhost:3000/dashboard`, {
+      withCredentials: true
+    })
+  } catch {
+    throw new Error('404 Not found!')
+  }
 }

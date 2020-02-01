@@ -1,5 +1,5 @@
 <template>
-  <div class="auction">
+  <div class="auction" v-if="!error">
     <img class="auction-image" src="../assets/tshirt.jpg" alt="black ric flair tshirt">
     <div class="auction-details">
       <h2 class="auction-title">{{ auctionData.title }}</h2>
@@ -10,8 +10,10 @@
         <p class="auction-buy-price" v-if="auctionData.buy_it_now_price">Buy It Now! <strong class="buy-it-now-price">${{ auctionData.buy_it_now_price / 100 }}.00</strong></p>
       </section>
       <p class="lister">Seller: <span class="lister-name">{{ userName }}</span></p>
-      <p class="error" v-if="error">{{ error }}</p>
     </div>
+  </div>
+  <div class="error" v-else>
+    <h2 class="error-text">{{ error }}</h2>
   </div>
 </template>
 
@@ -78,6 +80,10 @@ export default {
   height: 10rem;
   padding: 1rem;
   text-align: left;
+}
+
+.error-text {
+  color: red;
 }
 
 </style>
