@@ -4,8 +4,10 @@
       {{ labelText }}<span v-if="required"> (required)</span>:
       <input 
         :id="inputId" 
-        :type="inputType"
+        type="number"
         :required="required" 
+        :min="minVal"
+        :step="stepVal"
         :placeholder="placeholder"
         @input="$emit('input', $event.target.value)" >
     </label>
@@ -14,13 +16,14 @@
 
 <script>
 export default {
-  name: 'labeledInput',
+  name: 'numberInput',
   props: {
     labelText: String,
-    inputType: String,
     required: Boolean,
     inputId: String,
-    placeholder: String,
+    minVal: String,
+    stepVal: String,
+    placeholder: String
   }
 }
 </script>

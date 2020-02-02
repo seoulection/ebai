@@ -6,8 +6,8 @@
       <p class="end-date-section">Sale ends in: <strong class="end-date">{{ auctionData.end_date }}</strong></p>
       <p class="description">{{ auctionData.description }}</p>
       <section class="auction-prices">
-        <p class="auction-current-price" v-if="auctionData.current_bid_price">Current Price: <strong class="current-bid-price">${{ auctionData.current_bid_price / 100 }}.00</strong></p>
-        <p class="auction-buy-price" v-if="auctionData.buy_it_now_price">Buy It Now! <strong class="buy-it-now-price">${{ auctionData.buy_it_now_price / 100 }}.00</strong></p>
+        <p class="auction-current-price" v-if="auctionData.current_bid_price">Current Price: <strong class="current-bid-price">${{ auctionData.current_bid_price / 100 }}</strong></p>
+        <p class="auction-buy-price" v-if="auctionData.buy_it_now_price">Buy It Now! <strong class="buy-it-now-price">${{ auctionData.buy_it_now_price / 100 }}</strong></p>
       </section>
       <p class="lister">Seller: <span class="lister-name">{{ userName }}</span></p>
     </div>

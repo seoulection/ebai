@@ -21,6 +21,7 @@ describe('CreateAuctionForm.vue', () => {
     wrapper.find('#title').setValue('The Best Title')
     wrapper.find('#description').setValue('The Best Description')
     wrapper.find('#starting-bid-price').setValue(5)
+    wrapper.find('#buy-it-now-price').setValue(10)
     wrapper.find('#end-date').setValue('2020-05-09')
     wrapper.find('button').trigger('submit.prevent')
   }
@@ -31,7 +32,7 @@ describe('CreateAuctionForm.vue', () => {
         title: 'The Best Title',
         description: 'The Best Description',
         current_bid_price: 500,
-        buy_it_now_price: 0,
+        buy_it_now_price: 1000,
         end_date: '2020-05-09'
       }
     }
@@ -54,5 +55,19 @@ describe('CreateAuctionForm.vue', () => {
     await resolvePromise()
 
     expect(wrapper.find('.error').text()).toEqual('Error: Auction cannot be saved. Please try again!')
+  })
+
+  it('throws an error when buy it now price is less than starting bid price', async () => {
+    wrapper.find('#title').setValue('The Best Title')
+    wrapper.find('#description').setValue('The Best Description')
+    wrapper.find('#starting-bid-price').setValue(5)
+    wrapper.find('#buy-it-now-price').setValue(2)
+    wrapper.find('#end-date').setValue('2020-05-09')
+    wrapper.find('button').trigger('submit.prevent')
+
+    await resolvePromise()
+
+    expect(wrapper.find('.error').text()).toEqual('Buy it now price must be larger than starting bid price.')
+
   })
 })
