@@ -26,16 +26,41 @@ describe('CreateAuctionForm.vue', () => {
     wrapper.find('button').trigger('submit.prevent')
   }
 
+  it('calls the setAuctionImage', () => {
+    const setAuctionImage = jest.fn()
+    const localVue = createLocalVue()
+    const router = mockRouter(localVue)
+    wrapper = mount(CreateAuctionForm, {
+      localVue,
+      router,
+      methods: {
+        setAuctionImage
+      }
+    })
+
+    const file = new File(['asdfad'], 'image.png', { type: 'image/png' })
+    const imageInput = wrapper.find('#auctionImage')
+    imageInput.files = [file]
+    imageInput.trigger('change')
+
+    expect(setAuctionImage).toHaveBeenCalledTimes(1)
+  })
+
   it('submits the form and redirects to the auction page', async () => {
     const data = {
-      auction: {
-        title: 'The Best Title',
-        description: 'The Best Description',
-        current_bid_price: 500,
-        buy_it_now_price: 1000,
-        end_date: '2020-05-09'
-      }
+      title: 'The Best Title',
+      description: 'The Best Description',
+      image: null,
+      current_bid_price: 500,
+      buy_it_now_price: 1000,
+      end_date: '2020-05-09'
     }
+
+    let formData = new FormData()
+    Object.entries(data).forEach(
+      ([key, value]) => formData.append(key, value)
+    )
+
     const response = {
       data: {
         id: 1
@@ -45,7 +70,7 @@ describe('CreateAuctionForm.vue', () => {
     submitAuctionForm(wrapper)
     await resolvePromise()
 
-    expect(createAuction).toHaveBeenCalledWith(data)
+    expect(createAuction).toHaveBeenCalledWith(formData)
     expect(wrapper.vm.$route.name).toBe('auction')
   })
 
@@ -60,6 +85,7 @@ describe('CreateAuctionForm.vue', () => {
   it('throws an error when buy it now price is less than starting bid price', async () => {
     wrapper.find('#title').setValue('The Best Title')
     wrapper.find('#description').setValue('The Best Description')
+    wrapper.find('#auctionImage').setValue(null)
     wrapper.find('#starting-bid-price').setValue(5)
     wrapper.find('#buy-it-now-price').setValue(2)
     wrapper.find('#end-date').setValue('2020-05-09')
@@ -68,6 +94,5 @@ describe('CreateAuctionForm.vue', () => {
     await resolvePromise()
 
     expect(wrapper.find('.error').text()).toEqual('Buy it now price must be larger than starting bid price.')
-
   })
 })

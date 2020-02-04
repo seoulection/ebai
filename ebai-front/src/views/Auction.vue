@@ -1,6 +1,6 @@
 <template>
   <div class="auction" v-if="!error">
-    <img class="auction-image" src="../assets/tshirt.jpg" alt="black ric flair tshirt">
+    <img class="auction-image" :src="auctionImage" :alt="auctionData.title">
     <div class="auction-details">
       <h2 class="auction-title">{{ auctionData.title }}</h2>
       <p class="end-date-section">Sale ends in: <strong class="end-date">{{ auctionData.end_date }}</strong></p>
@@ -26,6 +26,7 @@ export default {
   data () {
     return {
       auctionData: {},
+      auctionImage: '',
       userName: '',
       error: ''
     }
@@ -37,9 +38,10 @@ export default {
     async getAuction () {
       try {
         const { data } = await showAuction(this.$route.params.id)
-        this.auctionData = data
+        this.auctionData = data.auction
+        this.auctionImage = data.image
         
-        const { data: { first_name, last_name} } = await getUser(data.user_id)
+        const { data: { first_name, last_name} } = await getUser(data.auction.user_id)
         this.userName = `${first_name} ${last_name}`
       } catch (err) {
         this.error = err

@@ -6,16 +6,17 @@ class AuctionsController < ApplicationController
 
   def show
     auction = Auction.find(params[:id])
-    render json: auction
+    render json: { auction: auction, image: auction.get_image_url() }
   end
 
   def create
-    @auction = current_user.auctions.new(auction_params)
+    auction = current_user.auctions.new(item_params)
+    auction.image.attach(auction_params[:image]) if auction_params[:image].present?
 
-    if @auction.save
-      render json: @auction, status: :created, location: @auction
+    if auction.save
+      render json: auction, status: :created, location: auction
     else
-      render json: @auction.errors, status: :unprocessable_entity
+      render json: auction.errors, status: :unprocessable_entity
     end
   end
 
@@ -25,7 +26,17 @@ class AuctionsController < ApplicationController
     render json: { error: error.message }, status: :not_found
   end
 
+  def item_params
+    {
+      title: auction_params[:title],
+      description: auction_params[:description],
+      current_bid_price: auction_params[:current_bid_price],
+      buy_it_now_price: auction_params[:buy_it_now_price],
+      end_date: auction_params[:end_date]
+    }
+  end
+
   def auction_params
-    params.require(:auction).permit(:title, :description, :current_bid_price, :buy_it_now_price, :end_date)
+    params.permit(:title, :description, :image, :current_bid_price, :buy_it_now_price, :end_date)
   end
 end

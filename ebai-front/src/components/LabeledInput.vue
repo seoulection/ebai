@@ -6,6 +6,7 @@
         :id="inputId" 
         :type="inputType"
         :required="required" 
+        :min="minVal"
         :placeholder="placeholder"
         @input="$emit('input', $event.target.value)" >
     </label>
@@ -20,6 +21,7 @@ export default {
     inputType: String,
     required: Boolean,
     inputId: String,
+    minVal: String,
     placeholder: String,
   }
 }
