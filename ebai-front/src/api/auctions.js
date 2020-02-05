@@ -2,7 +2,9 @@ import axios from 'axios'
 
 export async function showAuction(id) {
   try {
-    return await axios.get(`http://localhost:3000/auctions/${id}`)
+    return await axios.get(`http://localhost:3000/auctions/${id}`, {
+      withCredentials: true
+    })
   } catch (err) {
     throw Error(err)
   }

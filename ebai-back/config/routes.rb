@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  # resources :auctions
+  resources :auctions do
+    resources :bids
+  end
   resources :users
-  resources :auctions
 
   get 'dashboard', controller: :dashboard, action: :index
   get 'signin', controller: :signin, action: :index

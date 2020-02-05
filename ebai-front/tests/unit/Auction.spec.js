@@ -28,6 +28,10 @@ describe('Auction.vue', () => {
     expect(wrapper.find('.lister-name').text()).toEqual('Hello World')
   })
 
+  it('renders the bidding button when logged in', () => {
+    
+  })
+
   it('renders the error message', () => {
     const wrapper = shallowMount(Auction)
 

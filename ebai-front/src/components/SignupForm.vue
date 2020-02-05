@@ -55,8 +55,12 @@ export default {
       try {
         await createUser(data)
         this.$router.push({ name: 'success' })
-      } catch (err) {
-        this.error = err
+      } catch(err) {
+        if (err.response && err.response.status === 422) {
+          this.error = 'Email is already taken. Please try again!'
+        } else {
+          this.error = err
+        }
       }
     }
   }

@@ -30,6 +30,7 @@ export default {
     async getDashboard () {
       try {
         const { data: { user, auctions }} = await getUserDashboard()
+        console.log(user)
         this.user = user
         this.userAuctions = auctions
       } catch (err) {

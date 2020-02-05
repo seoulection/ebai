@@ -1,11 +1,14 @@
+import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter'
 import { createLocalVue, mount } from '@vue/test-utils'
 import CreateAuctionForm from '@/components/CreateAuctionForm'
 import { createAuction } from '@/api/auctions'
 import { mockRouter, resolvePromise } from '../helpers/helpers.js'
 
-jest.mock('@/api/auctions')
+//jest.mock('@/api/auctions')
 
 describe('CreateAuctionForm.vue', () => {
+  const mock = new MockAdapter(axios)
   let wrapper
 
   beforeEach(() => {
@@ -27,34 +30,27 @@ describe('CreateAuctionForm.vue', () => {
   }
 
   it('submits the form and redirects to the auction page', async () => {
-    const data = {
-      auction: {
-        title: 'The Best Title',
-        description: 'The Best Description',
-        current_bid_price: 500,
-        buy_it_now_price: 1000,
-        end_date: '2020-05-09'
-      }
-    }
     const response = {
-      data: {
-        id: 1
-      }
+      id: 1
     }
-    createAuction.mockResolvedValueOnce(response)
+
+    mock.onPost('http://localhost:3000/auctions').reply(201, response)
     submitAuctionForm(wrapper)
     await resolvePromise()
 
-    expect(createAuction).toHaveBeenCalledWith(data)
     expect(wrapper.vm.$route.name).toBe('auction')
+    expect(wrapper.vm.$route.path).toBe('/auctions/1')
   })
 
   it('displays an error message for an invalid submission', async () => {
-    createAuction.mockRejectedValueOnce(new Error('Auction cannot be saved. Please try again!'))
+    const error = {
+      "email": ["has already been taken"]
+    }
+    mock.onPost('http://localhost:3000/auctions').reply(422, error)
     submitAuctionForm(wrapper)
     await resolvePromise()
 
-    expect(wrapper.find('.error').text()).toEqual('Error: Auction cannot be saved. Please try again!')
+    expect(wrapper.find('.error').text()).toEqual('Error: Request failed with status code 422')
   })
 
   it('throws an error when buy it now price is less than starting bid price', async () => {

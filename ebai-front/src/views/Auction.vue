@@ -6,8 +6,14 @@
       <p class="end-date-section">Sale ends in: <strong class="end-date">{{ auctionData.end_date }}</strong></p>
       <p class="description">{{ auctionData.description }}</p>
       <section class="auction-prices">
-        <p class="auction-current-price" v-if="auctionData.current_bid_price">Current Price: <strong class="current-bid-price">${{ auctionData.current_bid_price / 100 }}</strong></p>
-        <p class="auction-buy-price" v-if="auctionData.buy_it_now_price">Buy It Now! <strong class="buy-it-now-price">${{ auctionData.buy_it_now_price / 100 }}</strong></p>
+        <div class="bid">
+          <p class="auction-current-price" v-if="auctionData.current_bid_price">Current Price: <strong class="current-bid-price">${{ auctionData.current_bid_price / 100 }}</strong></p>
+          <form v-if="isLoggedIn" v-on:submit.prevent="handleBidSubmission">
+            <input class="bid-input" type="number" v-model="bidAmount">
+            <button class="bid-button" type="submit">Bid</button>
+          </form>
+          <p class="auction-buy-price" v-if="auctionData.buy_it_now_price">Buy It Now! <strong class="buy-it-now-price">${{ auctionData.buy_it_now_price / 100 }}</strong></p>
+        </div>
       </section>
       <p class="lister">Seller: <span class="lister-name">{{ userName }}</span></p>
     </div>
@@ -18,8 +24,10 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { showAuction } from '@/api/auctions'
 import { getUser } from '@/api/users'
+//import { createBid } from '@/api/bids'
 
 export default {
   name: 'auction',
@@ -27,7 +35,13 @@ export default {
     return {
       auctionData: {},
       userName: '',
+      bidAmount: null,
       error: ''
+    }
+  },
+  computed: {
+    isLoggedIn () {
+      return this.$store.state.loggedIn
     }
   },
   created () {
@@ -41,6 +55,23 @@ export default {
         
         const { data: { first_name, last_name} } = await getUser(data.user_id)
         this.userName = `${first_name} ${last_name}`
+      } catch (err) {
+        this.error = err
+      }
+    },
+    async handleBidSubmission () {
+      try {
+        const data = {
+          //bid: {
+            //auction_id: this.$route.params.id,
+            amount: this.bidAmount
+          //}
+        }
+        // await createBid(data)
+        await axios.post(`http://localhost:3000/auctions/${this.$route.params.id}/bids`, data, {
+          withCredentials: true
+        })
+        //this.$routes.go()
       } catch (err) {
         this.error = err
       }

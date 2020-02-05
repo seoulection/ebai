@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <NavigationBar :loggedIn=isLoggedIn @loggedOut="setLoggedOut" />
+    <NavigationBar :loggedIn="isLoggedIn" @loggedOut="setLoggedOut" />
     <SigninModal v-if="isModalVisible" @close="closeModal" />
     <router-view/>
   </div>
@@ -20,8 +20,12 @@ export default {
   },
   data () {
     return {
-      isModalVisible: false,
-      isLoggedIn: false
+      isModalVisible: false
+    }
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.loggedIn
     }
   },
   beforeMount () {
@@ -42,13 +46,13 @@ export default {
     async checkLoginStatus () {
       try {
         await checkIfLoggedIn()
-        this.isLoggedIn = true
+        this.$store.commit('setLoggedIn')
       } catch {
-        this.loggedIn = false
+        this.$store.commit('setLoggedOut')
       }
     },
     setLoggedOut () {
-      this.isLoggedIn = false
+      this.$store.commit('setLoggedOut')
     }
   }
 }
