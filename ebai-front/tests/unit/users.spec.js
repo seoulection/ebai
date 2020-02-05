@@ -55,7 +55,7 @@ describe('users.js', () => {
 
     axios.post.mockRejectedValueOnce(new Error('This is an error'))
 
-    await expect(createUser(data)).rejects.toThrow('Email is already taken') 
+    await expect(createUser(data)).rejects.toThrow('This is an error')
   })
 
   it('it creates a session', async () => {
@@ -89,7 +89,7 @@ describe('users.js', () => {
 
     axios.post.mockRejectedValueOnce(new Error('This is an error'))
 
-    await expect(loginUser(data)).rejects.toThrow('Login did not work') 
+    await expect(loginUser(data)).rejects.toThrow('Login did not work')
   })
 
   it('it return user if logged in', async () => {

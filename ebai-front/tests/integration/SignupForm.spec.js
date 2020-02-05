@@ -56,6 +56,8 @@ describe('submitting the signup form', () => {
 
       fillOutForm(wrapper)
       await resolvePromise()
+
+      setTimeout(() => {}, 1000)
       
       expect(wrapper.find('#error').text()).toBe('Error: Email is already taken')
     })

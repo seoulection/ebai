@@ -6,7 +6,8 @@ class AuctionsController < ApplicationController
 
   def show
     auction = Auction.find(params[:id])
-    render json: { auction: auction, image: auction.get_image_url() }
+    bids = auction.bids
+    render json: { auction: auction, bids: bids, image: auction.get_image_url() }
   end
 
   def create
@@ -17,6 +18,16 @@ class AuctionsController < ApplicationController
       render json: auction, status: :created, location: auction
     else
       render json: auction.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @auction = Auction.update(params[:id], auction_params)
+
+    if @auction
+      render json: @auction, status: 200, location: @auction
+    else
+      render json: { error: 'Update failed' }, status: :unprocessable_entity
     end
   end
 
