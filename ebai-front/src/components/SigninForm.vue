@@ -9,7 +9,7 @@
         Password*:<br />
         <input id="password" type="password" v-model="password" required>
       </label>
-      <button type="submit">Login</button>
+      <button class="signin-btn" type="submit">Login</button>
     </form>
     <h3 id="error" v-if="error">{{ error }}</h3>
   </div>

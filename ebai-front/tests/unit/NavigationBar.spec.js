@@ -1,39 +1,36 @@
 import { shallowMount } from '@vue/test-utils'
+import LoggedInNavigationLinks from '@/components/LoggedInNavigationLinks'
+import LoggedOutNavigationLinks from '@/components/LoggedOutNavigationLinks'
 import NavigationBar from '@/components/NavigationBar'
 
+jest.mock('@/api/users.js')
+
 describe('NavigationBar.vue', () => {
-  it('has the ebai header', async () => {
-    const wrapper = shallowMount(NavigationBar, {
-      stubs: ['router-link']
+  describe('the component UI', () => {
+    it('has the ebai header', () => {
+      const wrapper = shallowMount(NavigationBar)
+
+      expect(wrapper.find('h1').text()).toBe('Ebai')
     })
 
-    expect(wrapper.find('h1').text()).toBe('Ebai')
+    it('displays the navigation links for a logged in user', () => {
+      const wrapper = shallowMount(NavigationBar, {
+        propsData: {
+          loggedIn: true
+        }
+      })
+
+      expect(wrapper.find(LoggedInNavigationLinks).exists()).toBe(true)
+    })
+
+    it('displays the navigation links for a logged out user', async () => {
+      const wrapper = shallowMount(NavigationBar, {
+        propsData: {
+          loggedIn: false
+        }
+      })
+
+      expect(wrapper.find(LoggedOutNavigationLinks).exists()).toBe(true)
+    })
   })
-
-  it('renders all navigation links when user is logged out', () => {
-    const wrapper = shallowMount(NavigationBar, {
-      stubs: ['router-link'],
-      propsData: {
-        loggedIn: false
-      }
-    })
-
-    expect(wrapper.find('[to="/"]').text()).toBe('Home')
-    expect(wrapper.find('[to="/signup"]').text()).toBe('Register')
-    expect(wrapper.find('[to="/users"]').text()).toBe('Show All Users')
-    expect(wrapper.find('[class="loginLink"]').text()).toBe('Login')
-  }) 
-
-  it('renders some navigation links when user is logged in', () => {
-    const wrapper = shallowMount(NavigationBar, {
-      stubs: ['router-link'],
-      propsData: {
-        loggedIn: true
-      }
-    })
-    expect(wrapper.find('[to="/"]').text()).toBe('Home')
-    expect(wrapper.find('[to="/users"]').text()).toBe('Show All Users')
-    expect(wrapper.find('[to="/signup"]').exists()).toBe(false)
-    expect(wrapper.find('[class="loginLink"]').exists()).toBe(false)
-  }) 
 })

@@ -25,6 +25,7 @@ describe('App.vue', () => {
   })
 
   it('contains the overlapping modal', () => {
+    wrapper.setData({ isModalVisible: true })
     expect(wrapper.find(SigninModal).exists()).toBe(true)
   })
 })
