@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { createUser, loginUser, checkIfLoggedIn } from '@/api/users'
+import { createUser, loginUser, checkIfLoggedIn, getUser } from '@/api/users'
 
 jest.mock('axios')
 
@@ -22,6 +22,25 @@ describe('users.js', () => {
     const apiResponse = await createUser(data)
 
     expect(apiResponse.status).toEqual(2001)
+  })
+
+  it('gets a user', async () => {
+    const response = {
+      status: 200,
+      data: {
+        user: {
+          first_name: 'Ebay',
+          last_name: 'Clone',
+          email: 'hello@world.net',
+          password: 'Hello1234%'
+        }
+      }
+    }
+    axios.get.mockResolvedValueOnce(response)
+    const apiResponse = await getUser(1)
+
+    expect(apiResponse.status).toEqual(200)
+    expect(apiResponse.data.user.first_name).toEqual("Ebay")
   })
 
   it('throws an error when email is taken', async () => {

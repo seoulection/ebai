@@ -8,6 +8,14 @@ export async function createUser(data) {
   }
 }
 
+export async function getUser(id) {
+  try {
+    return await axios.get(`http://localhost:3000/users/${id}`)
+  } catch {
+    throw new Error('User cannot be found')
+  }
+}
+
 export async function loginUser(data) {
   try {
     return await axios.post('http://localhost:3000/signin', data, {
