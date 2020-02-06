@@ -50,4 +50,10 @@ describe('CreateAuctionForm.vue', () => {
     expect(button.exists()).toBe(true)
     expect(button.text()).toEqual('Create')
   })
+
+  it('has a file uploader', () => {
+    const fileInput = wrapper.find('#auctionImage')
+
+    expect(fileInput.exists()).toBe(true)
+  })
 })

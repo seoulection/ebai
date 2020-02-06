@@ -52,7 +52,6 @@ describe('LabeledInput.vue', () => {
         labelText: "Hey",
         inputType: "number",
         required: true,
-        minVal: '1',
         placeholder: 'Input a number',
         id: "name"
       }
@@ -60,7 +59,6 @@ describe('LabeledInput.vue', () => {
 
     const input = wrapper.find('input')
 
-    expect(input.attributes().min).toEqual('1')
     expect(input.attributes().placeholder).toEqual('Input a number')
   })
 })

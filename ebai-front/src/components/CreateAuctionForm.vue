@@ -1,9 +1,13 @@
 <template>
-  <form class="create-auction-form" v-on:submit.prevent="handleAuctionCreation">
+  <form class="create-auction-form" enctype="multipart/form-data" v-on:submit.prevent="handleAuctionCreation">
     <LabeledInput inputId="title" labelText="Title" inputType="text" :required=true v-model="title" />
     <LabeledInput inputId="description" labelText="Description" inputType="text" :required=true v-model="description" />
-    <LabeledInput inputId="starting-bid-price" labelText="Starting Bid Price" inputType="number" minVal="1" :required=true placeholder="Minimum $1.00" v-model="startingBidPrice" />
-    <LabeledInput inputId="buy-it-now-price" labelText="Buy It Now Price" inputType="number" minVal="1" v-model="buyItNowPrice" />
+    <label class="form-label" for="auctionImage">
+      Please upload an image:
+      <input id="auctionImage" ref="auctionImage" type="file" accept="image/jpeg, image/jpg, image/png" @change="setAuctionImage()">
+    </label>
+    <NumberInput inputId="starting-bid-price" labelText="Starting Bid Price" minVal="1" :required=true placeholder="Minimum $1.00" v-model="startingBidPrice" stepVal="0.01" />
+    <NumberInput inputId="buy-it-now-price" labelText="Buy It Now Price" minVal="1" v-model="buyItNowPrice" stepVal="0.01" />
     <LabeledInput inputId="end-date" labelText="End Date" inputType="date" :minVal="tomorrowsDate" :required=true v-model="endDate" />
     <button class="auction-btn" type="submit">Create</button>
     <h2 class="error" v-if="error">{{ error }}</h2>
@@ -13,6 +17,7 @@
 <script>
 import moment from 'moment'
 import LabeledInput from '@/components/LabeledInput'
+import NumberInput from '@/components/NumberInput'
 import { createAuction } from '@/api/auctions'
 
 export default {
@@ -21,7 +26,8 @@ export default {
     return {
       title: '',
       description: '',
-      startingBidPrice: 1,
+      image: null,
+      startingBidPrice: null,
       buyItNowPrice: null,
       endDate: null,
       error: ''
@@ -33,25 +39,37 @@ export default {
     }
   },
   components: {
-    LabeledInput
+    LabeledInput,
+    NumberInput
   },
   methods: {
+    setAuctionImage() {
+      this.image = this.$refs.auctionImage.files[0]
+    },
     async handleAuctionCreation () {
-      var data = {
-        auction: {
+      if (this.buyItNowPrice != null && Number(this.buyItNowPrice) < Number(this.startingBidPrice)) {
+          this.error = "Buy it now price must be larger than starting bid price."
+      } else {
+        const params = {
           title: this.title,
           description: this.description,
+          image: this.image,
           current_bid_price: this.startingBidPrice * 100,
           buy_it_now_price: this.buyItNowPrice * 100,
           end_date: this.endDate
-        }
-      }
+        } 
 
-      try {
-        const { data: { id } } = await createAuction(data)
-        this.$router.push({ name: 'auction', params: { id: id }} )
-      } catch (err) {
-        this.error = err
+        let formData = new FormData()
+        Object.entries(params).forEach(
+          ([key, value]) => formData.append(key, value)
+        )
+
+        try {
+          const { data: { id } } = await createAuction(formData)
+          this.$router.push({ name: 'auction', params: { id: id }} )
+        } catch (err) {
+          this.error = err
+        }
       }
     }
   }

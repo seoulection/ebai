@@ -22,8 +22,8 @@ describe('Auction.vue', () => {
     wrapper.setData({ error: '' })
 
     expect(wrapper.find('.auction-title').text()).toEqual('test title')
-    expect(wrapper.find('.current-bid-price').text()).toEqual('$1.00')
-    expect(wrapper.find('.buy-it-now-price').text()).toEqual('$5.00')
+    expect(wrapper.find('.current-bid-price').text()).toEqual('$1')
+    expect(wrapper.find('.buy-it-now-price').text()).toEqual('$5')
     expect(wrapper.find('.end-date').text()).toEqual('2020-01-30')
     expect(wrapper.find('.lister-name').text()).toEqual('Hello World')
   })
