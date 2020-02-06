@@ -21,7 +21,11 @@ export default {
     }
   },
   created () {
-    axios.get('http://localhost:3000/users')
+    axios.get('http://localhost:3000/users', {
+      withCredentials: true,
+      xsrfCookieName: 'CSRF-TOKEN',
+      xsrfHeaderName: 'X-CSRF-Token'
+      })
       .then(res => {
         this.users = res.data
       })
