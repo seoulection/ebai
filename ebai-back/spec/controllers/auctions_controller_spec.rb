@@ -72,4 +72,53 @@ RSpec.describe AuctionsController, type: :controller do
       end
     end
   end
+
+  describe "PUT #update" do
+    let(:update_attributes) {
+      {
+        title: 'Microsoft',
+        description: 'Brand new',
+        current_bid_price: 3000,
+        buy_it_now_price: 15000,
+        end_date: DateTime.tomorrow
+      }
+    }
+
+    let(:invalid_update_attributes) {
+      {
+        title: 0,
+        description: 1,
+        current_bid_price: {hi: 'test'},
+        buy_it_now_price: 15000,
+        end_date: 500
+      }
+    }
+
+    before(:each) do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    end
+
+    it "updates an existing auction" do
+      auction = Auction.create! valid_attributes
+      put :update, params: {
+        title: 'Microsoft',
+        description: 'Brand new',
+        current_bid_price: 3000,
+        buy_it_now_price: 15000,
+        end_date: DateTime.tomorrow,
+        id: auction.id
+      }
+      expect(response).to have_http_status(:success)
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+      expect(JSON.parse(response.body)['title']).to eq('Microsoft')
+    end
+
+    # TODO
+    # it "fails an existing auction" do
+    #   auction = Auction.create! valid_attributes
+    #   put :update, params: {auction: invalid_update_attributes, id: auction.id}
+    #   expect(response).to have_http_status(:unprocessable_entity)
+    #   expect(response.content_type).to eq('application/json; charset=utf-8')
+    # end
+  end
 end

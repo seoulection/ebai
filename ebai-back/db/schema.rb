@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_193622) do
+ActiveRecord::Schema.define(version: 2020_02_05_011633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2020_02_04_193622) do
     t.index ["user_id"], name: "index_auctions_on_user_id"
   end
 
+  create_table "bids", force: :cascade do |t|
+    t.bigint "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.uuid "auction_id", null: false
+    t.index ["auction_id"], name: "index_bids_on_auction_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -60,4 +70,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_193622) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "auctions", "users"
+  add_foreign_key "bids", "auctions"
+  add_foreign_key "bids", "users"
 end

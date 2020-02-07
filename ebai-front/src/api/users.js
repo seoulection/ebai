@@ -1,11 +1,7 @@
 import axios from 'axios'
 
 export async function createUser(data) {
-  try {
-    return await axios.post('http://localhost:3000/users', data)
-  } catch(e) {
-    throw new Error('Email is already taken')
-  }
+  return await axios.post('http://localhost:3000/users', data)
 }
 
 export async function getUser(id) {

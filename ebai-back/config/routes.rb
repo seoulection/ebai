@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   default_url_options :host => 'http://localhost:3000'
+  resources :auctions do
+    post 'bids', controller: :bids, action: :create
+  end
   resources :users
-  resources :auctions
 
   get 'dashboard', controller: :dashboard, action: :index
   get 'signin', controller: :signin, action: :index
