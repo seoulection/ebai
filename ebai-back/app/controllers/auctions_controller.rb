@@ -2,6 +2,10 @@ class AuctionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   def index
+    auctions = Auction.where('end_date > ?', DateTime.now)
+
+    auctions_with_image = auctions.map { |auction| auction.as_json.merge!(image: auction.get_image_url())}
+    render json: auctions_with_image, status: 200
   end
 
   def show
