@@ -1,12 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Ebai logo" src="../assets/logo.png">
-    <h1>Coming soon</h1>
+    <h1>On sale now!</h1>
+    <div id="auctions">
+      <AuctionListing v-for="auction in auctions" :auction="auction" :key="auction.id" />
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import AuctionListing from '@/components/AuctionListing'
+
 export default {
-  name: 'home'
+  name: 'home',
+  components: {
+    AuctionListing
+  },
+  data () {
+    return {
+      auctions: []
+    }
+  },
+  created () {
+    this.getAuctions()
+  },
+  methods: {
+    async getAuctions() {
+      const response = await axios.get('http://localhost:3000/auctions')
+      console.log(response.data.length)
+      this.auctions = response.data
+    }
+  }
 }
 </script>
+
+<style scoped>
+  #auctions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+</style>

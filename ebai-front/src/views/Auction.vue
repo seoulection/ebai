@@ -3,13 +3,24 @@
     <img class="auction-image" :src="auctionImage" :alt="auctionData.title">
     <div class="auction-details">
       <h2 class="auction-title">{{ auctionData.title }}</h2>
-      <p class="end-date-section">Sale ends in: <strong class="end-date">{{ auctionData.end_date }}</strong></p>
+      <Countdown v-if="endTime" :starttime="startTime" :endtime="endTime" @auctionExpired="timeExpired" trans='{  
+         "day":"Day",
+         "hours":"Hours",
+         "minutes":"Minutes",
+         "seconds":"Seconds",
+         "expired":"Auction expired.",
+         "running":"Till the end of auction.",
+         "status": {
+            "expired":"Expired",
+            "running":"Running",
+            "upcoming":"Future"
+           }}' />
       <p class="description">{{ auctionData.description }}</p>
       <section class="auction-prices">
         <div class="bid">
           <div class="bid-form-container">
             <p class="bid-current-price" v-if="auctionData.current_bid_price">Current Price: <strong class="current-bid-price">${{ auctionData.current_bid_price / 100 }}</strong></p>
-            <form class="bid-form" v-if="isLoggedIn" v-on:submit.prevent="handleBidSubmission">
+            <form class="bid-form" v-if="isLoggedIn && !expired" v-on:submit.prevent="handleBidSubmission">
               <input class="bid-input" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" :min="convertToDollars" v-model="bidAmount">
               <button class="bid-button" type="submit">Bid</button>
             </form>
@@ -26,12 +37,16 @@
 </template>
 
 <script>
+import Countdown from '@/components/Countdown'
 import { showAuction, updateAuction } from '@/api/auctions'
 import { getUser } from '@/api/users'
 import { createBid } from '@/api/bids'
 
 export default {
   name: 'auction',
+  components: {
+    Countdown
+  },
   data () {
     return {
       auctionData: {},
@@ -39,7 +54,10 @@ export default {
       userName: '',
       bidAmount: null,
       currentBidPrice: 0,
-      error: ''
+      error: '',
+      endTime: null,
+      expired: false,
+      startTime: null
     }
   },
   computed: {
@@ -52,6 +70,7 @@ export default {
   },
   created () {
     this.getAuction()
+    this.startTime = new Date().getTime()
   },
   methods: {
     async getAuction() {
@@ -59,9 +78,10 @@ export default {
         const { data } = await showAuction(this.$route.params.id)
         this.auctionData = data.auction
         this.auctionImage = data.image
-        
+ 
         const { data: { first_name, last_name} } = await getUser(data.auction.user_id)
         this.userName = `${first_name} ${last_name}`
+        this.endTime = new Date(data.auction.end_date).getTime()
       } catch (err) {
         this.error = err
       }
@@ -85,6 +105,9 @@ export default {
       } catch (err) {
         this.error = err
       }
+    },
+    timeExpired() {
+      this.expired = true
     }
   }
 }
