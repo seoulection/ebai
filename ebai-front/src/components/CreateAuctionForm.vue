@@ -8,7 +8,15 @@
     </label>
     <NumberInput inputId="starting-bid-price" labelText="Starting Bid Price" minVal="1" :required=true placeholder="Minimum $1.00" v-model="startingBidPrice" stepVal="0.01" />
     <NumberInput inputId="buy-it-now-price" labelText="Buy It Now Price" minVal="1" v-model="buyItNowPrice" stepVal="0.01" />
-    <LabeledInput inputId="end-date" labelText="End Date" inputType="date" :minVal="tomorrowsDate" :required=true v-model="endDate" />
+    <label for="end-date">How long do you want the auction to last (required):</label>
+    <select name="end-times" id="end-date" v-model="endDate" required>
+      <option value="12">12 hours</option>
+      <option value="24">24 hours</option>
+      <option value="36">36 hours</option>
+      <option value="48">48 hours</option>
+      <option value="48">48 hours</option>
+      <option value="72">72 hours</option>
+    </select>
     <button class="auction-btn" type="submit">Create</button>
     <h2 class="error" v-if="error">{{ error }}</h2>
   </form>
@@ -33,11 +41,6 @@ export default {
       error: ''
     }
   },
-  computed: {
-    tomorrowsDate: function () {
-      return moment(new Date()).add(1, 'day').format('YYYY-MM-DD')
-    }
-  },
   components: {
     LabeledInput,
     NumberInput
@@ -56,7 +59,7 @@ export default {
           image: this.image,
           current_bid_price: this.startingBidPrice * 100,
           buy_it_now_price: this.buyItNowPrice * 100,
-          end_date: this.endDate
+          end_date: moment().add(this.endDate, 'hours').format('MMM Do YYYY h:mm:ss')
         } 
 
         let formData = new FormData()
@@ -79,5 +82,9 @@ export default {
 <style scoped>
   .create-auction-form {
     width: 75rem;
+  }
+
+  .create-auction-form  label {
+    text-align: left;
   }
 </style>
