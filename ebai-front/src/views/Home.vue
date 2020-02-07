@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Listings</h1>
+    <h1>On sale now!</h1>
     <div id="auctions">
       <AuctionListing v-for="auction in auctions" :auction="auction" :key="auction.id" />
     </div>
@@ -27,7 +27,6 @@ export default {
   methods: {
     async getAuctions() {
       const response = await axios.get('http://localhost:3000/auctions')
-      console.log(response)
       this.auctions = response.data
     }
   }
@@ -35,9 +34,9 @@ export default {
 </script>
 
 <style scoped>
-#auctions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+  #auctions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 </style>
