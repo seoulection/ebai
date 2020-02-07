@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'signin', controller: :signin, action: :index
   post 'signin', controller: :signin, action: :create
   delete 'signin', controller: :signin, action: :destroy
+  put 'auctions/:id/bid', controller: :auctions, action: :bid
 end

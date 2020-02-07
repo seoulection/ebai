@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import { createLocalVue, shallowMount, mount } from '@vue/test-utils'
 import Auction from '@/views/Auction'
+import Countdown from '@/components/Countdown'
 
 jest.mock('@/api/auctions')
 jest.mock('@/api/users')
@@ -40,13 +41,14 @@ describe('Auction.vue', () => {
     }
 
     wrapper.setData({ auctionData: data })
+    wrapper.setData({ endTime: '2020-02-20' })
     wrapper.setData({ userName: 'Hello World' })
     wrapper.setData({ error: '' })
 
     expect(wrapper.find('.auction-title').text()).toEqual('test title')
     expect(wrapper.find('.current-bid-price').text()).toEqual('$1')
     expect(wrapper.find('.buy-it-now-price').text()).toEqual('$5')
-    expect(wrapper.find('.end-date').text()).toEqual('2020-01-30')
+    expect(wrapper.find(Countdown).exists()).toBe(true)
     expect(wrapper.find('.lister-name').text()).toEqual('Hello World')
   })
 

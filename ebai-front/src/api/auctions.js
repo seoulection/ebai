@@ -25,3 +25,9 @@ export function updateAuction(id, data) {
     withCredentials: true
   })
 }
+
+export function updateAuctionCurrentBid(id, data) {
+  return axios.put(`http://localhost:3000/auctions/${id}/bid`, data, {
+    withCredentials: true
+  })
+}

@@ -29,6 +29,7 @@
         </div>
       </section>
       <p class="lister">Seller: <span class="lister-name">{{ userName }}</span></p>
+      <a v-show="isOwner" :href="editAuctionPath">Edit</a>
     </div>
   </div>
   <div class="error" v-else>
@@ -38,7 +39,7 @@
 
 <script>
 import Countdown from '@/components/Countdown'
-import { showAuction, updateAuction } from '@/api/auctions'
+import { showAuction, updateAuctionCurrentBid } from '@/api/auctions'
 import { getUser } from '@/api/users'
 import { createBid } from '@/api/bids'
 
@@ -64,9 +65,15 @@ export default {
     isLoggedIn () {
       return this.$store.state.user.loggedIn && (this.$store.state.user.userId != this.auctionData.user_id)
     },
+    isOwner() {
+      return this.$store.state.user.userId == this.auctionData.user_id
+    },
     convertToDollars () {
       return (this.auctionData.current_bid_price + 1) / 100
     },
+    editAuctionPath () {
+      return `/auctions/${this.auctionData.id}/edit`
+    }
   },
   created () {
     this.getAuction()
@@ -100,8 +107,9 @@ export default {
           current_bid_price: flooredAmount
         }
 
-        await updateAuction(auctionId, updatedAuctionData)
+        await updateAuctionCurrentBid(auctionId, updatedAuctionData)
         this.auctionData.current_bid_price = flooredAmount
+        this.bidAmount = null
       } catch (err) {
         this.error = err
       }

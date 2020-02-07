@@ -5,12 +5,6 @@ describe('Home.vue', () => {
   it('renders the homepage message', () => {
     const wrapper = shallowMount(Home)
 
-    expect(wrapper.text()).toBe('Coming soon')
-  })
-
-  it('renders the awesome logo', () => {
-    const wrapper = shallowMount(Home)
-
-    expect(wrapper.contains('img')).toBe(true)
+    expect(wrapper.text()).toBe('On sale now!')
   })
 })

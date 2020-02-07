@@ -7,6 +7,7 @@ import Success from '@/views/Success'
 import Users from '@/views/Users'
 import Auction from '@/views/Auction'
 import CreateAuction from '@/views/CreateAuction'
+import EditAuction from '@/views/EditAuction'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ export const routes = [
     path: '/auctions/new',
     name: 'createAuction',
     component: CreateAuction
+  },
+  {
+    path: '/auctions/:id/edit',
+    name: 'editAuction',
+    component: EditAuction
   },
   {
     path: '/auctions/:id',

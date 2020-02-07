@@ -10,6 +10,8 @@ class AuctionsController < ApplicationController
   end
 
   def show
+    puts 'in show'
+    puts params[:id]
     auction = Auction.find(params[:id])
     bids = auction.bids
     render json: { auction: auction, bids: bids, image: auction.get_image_url() }
@@ -17,6 +19,8 @@ class AuctionsController < ApplicationController
 
   def create
     auction = current_user.auctions.new(item_params)
+    puts 'the auction is'
+    puts auction
     auction.image.attach(auction_params[:image]) if auction_params[:image].present?
 
     if auction.save
@@ -26,11 +30,29 @@ class AuctionsController < ApplicationController
     end
   end
 
-  def update
+  def bid 
     @auction = Auction.update(params[:id], auction_params)
 
     if @auction
       render json: @auction, status: 200, location: @auction
+    else
+      render json: { error: 'Update failed' }, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    auction = Auction.find(params[:id])
+    auction.title = params[:title]
+    auction.description = params[:description]
+
+    if auction_params[:image] != 'null'
+      auction.image.purge
+      auction.image.attach(auction_params[:image])
+      auction.save
+    end
+
+    if auction.save
+      render json: auction, status: 200, location: auction
     else
       render json: { error: 'Update failed' }, status: :unprocessable_entity
     end
